@@ -35,6 +35,18 @@ function App() {
       }
     }
 
+    else if (key === "/") {
+      if (prevInput !== null) {
+        setCurInput(parseFloat(prevInput) / parseFloat(curInput));
+      }
+
+      else {
+        setPrevInput(curInput);
+        setPrevOperator('/');
+        setCurInput("");
+      }
+    }
+
     else if (key === "*") {
       if (prevInput !== null) {
         setCurInput(parseFloat(prevInput) * parseFloat(curInput));
@@ -76,7 +88,7 @@ function App() {
         setCurInput('.');
       }
 
-      else if (curInput[curInput.length - 1] !== '.') {
+      else if (!curInput.includes('.')) {
         setCurInput(curInput + '.');
       }
     }
